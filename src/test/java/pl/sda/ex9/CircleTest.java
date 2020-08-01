@@ -18,11 +18,10 @@ public class CircleTest {
         assertEquals(2*Math.PI*r, circle.getPerimeter());
         assertEquals(Math.PI*r*r, circle.getArea());
 
-        //sprawdzic test z kodem trenera!!
-        MoveDirection md = new MoveDirection(2.5d, -3);
+        MoveDirection md = new MoveDirection(2.5d, -3d);
         circle.move(md);
         assertEquals(2.5d,circle.getCenter().getX());
-        assertEquals(-2,circle.getCenter().getY());
+        assertEquals(-2d,circle.getPoint().getY());
     }
 
     @Test
@@ -42,7 +41,7 @@ public class CircleTest {
         r = circle.getRadius();
         assertEquals(3.0d, r);
         assertEquals(2*Math.PI*r,circle.getPerimeter());
-        assertEquals(9*Math.PI*r*r,circle.getCenter().getY());
+        assertEquals(Math.PI*r*r,circle.getArea());
         System.out.println("r: " + r + "p: " + circle.getPerimeter() + "a: " + circle.getArea());
     }
 }
