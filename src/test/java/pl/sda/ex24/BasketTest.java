@@ -5,6 +5,7 @@ import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.fail;
 
+
 public class BasketTest {
 
     @Test
@@ -23,6 +24,18 @@ public class BasketTest {
             b.addToBasket();//10
             b.addToBasket();//11
         });
+    }
+
+    @Test
+    public void shouldThrowBasketEmptyExeption(){
+        Basket b = new Basket();
+        b.addToBasket();
+        try {
+            b.removeToBasket(); // 1
+        } catch (BasketEmptyExeption e) {
+            fail("There where .."); //dokońćż!!
+        }
+
     }
 
     @Test
