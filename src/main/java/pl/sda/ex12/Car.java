@@ -9,13 +9,15 @@ public class Car {
     private double price;
     private int productionYear;
     private List<Manufacturer> manufacturers;
+    private EngineEnum engine;
 
-    public Car(String name, String model, double price, int productionYear, List<Manufacturer> manufacturers) {
+    public Car(String name, String model, double price, int productionYear, List<Manufacturer> manufacturers, EngineEnum engine) {
         this.name = name;
         this.model = model;
         this.price = price;
         this.productionYear = productionYear;
         this.manufacturers = manufacturers;
+        this.engine = engine;
     }
 
     public String getName() {
@@ -58,6 +60,14 @@ public class Car {
         this.manufacturers = manufacturers;
     }
 
+    public EngineEnum getEngine() {
+        return engine;
+    }
+
+    public void setEngine(EngineEnum engine) {
+        this.engine = engine;
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
@@ -67,11 +77,12 @@ public class Car {
                 productionYear == car.productionYear &&
                 Objects.equals(name, car.name) &&
                 Objects.equals(model, car.model) &&
-                Objects.equals(manufacturers, car.manufacturers);
+                Objects.equals(manufacturers, car.manufacturers) &&
+                engine == car.engine;
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(name, model, price, productionYear, manufacturers);
+        return Objects.hash(name, model, price, productionYear, manufacturers, engine);
     }
 }
