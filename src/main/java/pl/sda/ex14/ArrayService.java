@@ -6,13 +6,13 @@ import java.util.stream.Collectors;
 //uzupełnić!!
 public class ArrayService {
 
-    public Integer[] returnRandomArray(int n, int bound){
+    /*public Integer[] returnRandomArray(int n, int bound){
         Integer[] arr = new Integer[n];
         Random r = new Random();
         for (int i=0 , i<arr.length,  arr) {
             i = r.nextInt(bound);
         }
-    }
+    }*/
 
     public List<Integer> returnUniqueValues(Integer[] arr){
         Set<Integer> uniqueValues = new HashSet<>();

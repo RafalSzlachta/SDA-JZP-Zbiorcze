@@ -120,7 +120,7 @@ public class CarService {
         return output;
     }
     // poprawic!!
-    public List<Car> returnCarsManufacturedByManufacturerWithCreationYearSpecifiedWithComparator(int creationYear, CarServiceComparatorEnum) {
+   /* public List<Car> returnCarsManufacturedByManufacturerWithCreationYearSpecifiedWithComparator(int creationYear, CarServiceComparatorEnum) {
         Set<Car> output = new HashSet<>();
         for (Car car : cars) {
             for (Manufacturer man : car.getManufacturers()){
@@ -135,5 +135,5 @@ public class CarService {
         }
         List<Car> outputList = new ArrayList<>(output);
         return outputList;
-    }
+    }*/
 }
