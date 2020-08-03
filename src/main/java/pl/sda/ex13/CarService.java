@@ -33,24 +33,24 @@ public class CarService {
     public List<Car> carsWithV12Engine() {
         List<Car> output = new ArrayList<>();
         for (Car car : cars) {
-            if(car.getEngine().equals(EngineEnum.V12)){
-            output.add(car);
-            }
-        }
-    return output;
-    }
-
-    public List<Car> carsProducedBefore1999() {
-        List<Car> output = new ArrayList<>();
-        for (Car car : cars) {
-            if(car.getProductionYear()<1999){
+            if (car.getEngine().equals(EngineEnum.V12)) {
                 output.add(car);
             }
         }
         return output;
     }
- // sprawdic czy dobrze!!
-    public Car returnMostExpensiveCars(List<Car> cars) {
+
+    public List<Car> carsProducedBefore1999() {
+        List<Car> output = new ArrayList<>();
+        for (Car car : cars) {
+            if (car.getProductionYear() < 1999) {
+                output.add(car);
+            }
+        }
+        return output;
+    }
+
+    public Car returnMostExpensiveCar(List<Car> cars) {
         if (cars.isEmpty()) {
             return null;
         }
@@ -63,30 +63,30 @@ public class CarService {
         return max;
     }
 
-    public Car returnMostExpensiveCar(List<Car> cars) {
-        return returnMostExpensiveCars(cars);
+    public Car returnMostExpensiveCar() {
+        return returnMostExpensiveCar(cars);
     }
-// sprawdzic czy dobrze!!
-    public Car returnCheapestCars(List<Car> cars) {
-        if(cars.isEmpty()){
+
+    public Car returnCheapestCar(List<Car> cars) {
+        if (cars.isEmpty()) {
             return null;
         }
         Car min = cars.get(0);
         for (Car car : cars) {
-            if(car.getPrice()<min.getPrice()){
+            if (car.getPrice() < min.getPrice()) {
                 min = car;
             }
         }
         return min;
     }
 
-    public Car returnCheapestCar(List<Car> cars) {
-        return returnCheapestCars(cars);
+    public Car returnCheapestCar() {
+        return returnCheapestCar(cars);
     }
 
-    public Car returnCarWith3Manufacturers(){
+    public Car returnCarWith3Manufacturers() {
         for (int i = 0; i < cars.size(); i++) {
-            if(cars.get(i).getManufacturers().size()>3){
+            if (cars.get(i).getManufacturers().size() > 3) {
                 return cars.get(i);
             }
         }
@@ -94,10 +94,10 @@ public class CarService {
     }
 
     //sortowanie na piechotę
-    public List<Car> returnCarsSortedByPrice(boolean ascending){
+    public List<Car> returnCarsSortedByPrice(boolean ascending) {
         List<Car> output = new ArrayList<>();
         List<Car> sortingHelper = new ArrayList<>(cars);
-        while (!sortingHelper.isEmpty()){
+        while (!sortingHelper.isEmpty()) {
             Car car;
             car = (ascending) ? returnCheapestCar(sortingHelper) : returnMostExpensiveCar(sortingHelper);
             output.add(car);
@@ -106,34 +106,61 @@ public class CarService {
         return output;
     }
 
-    public boolean contains(Car car) {
+    public boolean containsCar(Car car) {
         return cars.contains(car);
     }
 
     public List<Car> carsProducedByManufacturer(Manufacturer man) {
         List<Car> output = new ArrayList<>();
         for (Car car : cars) {
-            if(car.getManufacturers().contains(man)){
+            if (car.getManufacturers().contains(man)) {
                 output.add(car);
             }
         }
         return output;
     }
-    // poprawic!!
-   /* public List<Car> returnCarsManufacturedByManufacturerWithCreationYearSpecifiedWithComparator(int creationYear, CarServiceComparatorEnum) {
+
+    public List<Car> returnCarsManufacturedByManufacturerWithCreationYearSpecifiedWithComparator(int creationYear,
+                                                                                                 CarServiceComparatorEnum comparator) {
         Set<Car> output = new HashSet<>();
         for (Car car : cars) {
-            for (Manufacturer man : car.getManufacturers()){
+            for (Manufacturer man : car.getManufacturers())
                 {
-                    switch (comparator){
+                    switch (comparator) {
                         case LESS_THAN:
-
+                            if (man.getCreationYear() < creationYear) {
+                                output.add(car);
+                            }
+                            break;
+                        case MORE_THAN:
+                            if (man.getCreationYear() > creationYear) {
+                                output.add(car);
+                            }
+                            break;
+                        case LESS_OR_EQUAL:
+                            if (man.getCreationYear() <= creationYear) {
+                                output.add(car);
+                            }
+                            break;
+                        case MORE_OR_EQUAL:
+                            if (man.getCreationYear() >= creationYear) {
+                                output.add(car);
+                            }
+                            break;
+                        case EQUAL:
+                            if (man.getCreationYear() == creationYear) {
+                                output.add(car);
+                            }
+                            break;
+                        case DIFFERENT:
+                            if (man.getCreationYear() != creationYear) {
+                                output.add(car);
+                            }
+                            break;
                     }
                 }
-
             }
+            List<Car> outputList = new ArrayList<>(output);
+            return outputList;
         }
-        List<Car> outputList = new ArrayList<>(output);
-        return outputList;
-    }*/
 }

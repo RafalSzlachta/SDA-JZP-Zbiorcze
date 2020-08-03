@@ -33,7 +33,7 @@ public class BasketTest {
         try {
             b.removeToBasket(); // 1
         } catch (BasketEmptyExeption e) {
-            fail("There where .."); //dokońćż!!
+            fail("There where items to remove");
         }
 
     }

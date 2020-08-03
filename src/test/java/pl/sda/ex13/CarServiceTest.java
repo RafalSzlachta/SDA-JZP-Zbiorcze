@@ -13,7 +13,6 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public class CarServiceTest {
 
-    //sprawdzic czy dobrze
     @Test
     public void yearComparatorMethodShouldReturnCorrectCars() {
         Manufacturer man1 = new Manufacturer("m1", "c1", 1950);
@@ -32,11 +31,11 @@ public class CarServiceTest {
         cars.add(car4);
 
         CarService cs = new CarService(cars);
-        /*assertEquals(
-                Arrays.asList(car1, car2, car4),
-               // cs.returnCarsManufacturedByManufacturerWithCreationYearSpecifiedWithComparator(1975, CarServiceComparatorEnum.LESS_OR_EQUAL)
+        assertEquals(
+                Arrays.asList(car1, car4, car2),
+               cs.returnCarsManufacturedByManufacturerWithCreationYearSpecifiedWithComparator(1975, CarServiceComparatorEnum.LESS_OR_EQUAL)
 
 
-        );*/
+        );
     }
 }
