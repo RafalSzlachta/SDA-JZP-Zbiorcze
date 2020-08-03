@@ -1,6 +1,5 @@
 package pl.sda.ex15;
 
-import java.security.PublicKey;
 
 public enum CarEnum {
     FERRARI(100.0d, true),

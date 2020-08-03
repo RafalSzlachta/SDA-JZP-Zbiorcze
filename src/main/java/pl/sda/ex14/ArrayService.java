@@ -6,13 +6,14 @@ import java.util.stream.Collectors;
 //uzupełnić!!
 public class ArrayService {
 
-    /*public Integer[] returnRandomArray(int n, int bound){
+    public Integer[] returnRandomArray(int n, int bound){
         Integer[] arr = new Integer[n];
         Random r = new Random();
-        for (int i=0 , i<arr.length,  arr) {
-            i = r.nextInt(bound);
+        for (int i = 0; i < arr.length;  i++) {
+            arr[i] = r.nextInt(bound);
         }
-    }*/
+        return arr;
+    }
 
     public List<Integer> returnUniqueValues(Integer[] arr){
         Set<Integer> uniqueValues = new HashSet<>();
@@ -23,10 +24,24 @@ public class ArrayService {
         return output;
     }
 
-   // public List<Integer> returnDuplicates()
+    public List<Integer> returnDuplicates(Integer[] arr) {
+        Set<Integer> encountered = new HashSet<>();
+        Set<Integer> duplicates = new HashSet<>();
+        for(Integer i : arr){
+            if(encountered.contains(i))
+            {
+                duplicates.add(i);
+            }
+            else{
+                encountered.add(i);
+            }
+        }
+        List<Integer> output = new ArrayList<>(duplicates);
+        return output;
+    }
 
 
-    public List<Integer> return25MostFrequentElements(Integer[] arr){
+    public List<Integer> return3MostFrequentElements(Integer[] arr){
         //List<>
         Map<Integer, Integer> freq = new LinkedHashMap<>();
         for (Integer i : arr) {
@@ -40,7 +55,7 @@ public class ArrayService {
         List<Map.Entry<Integer, Integer>> listOfFrequencies = new ArrayList(freq.entrySet());
         Collections.sort(listOfFrequencies, Comparator.comparing((Map.Entry<Integer, Integer> e) -> e.getValue()).reversed());
 
-        return listOfFrequencies.stream().limit(25).map((e) -> e.getKey()).collect(Collectors.toList());
+        return listOfFrequencies.stream().limit(3).map((e) -> e.getKey()).collect(Collectors.toList());
     }
 
     public void deduplicate(Integer[] arr, int bound){
@@ -51,8 +66,6 @@ public class ArrayService {
                 arr[i]=r.nextInt(bound);
             }
             encountered.add(arr[i]);
-            
         }
-
     }
 }
