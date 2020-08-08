@@ -1,0 +1,6 @@
+pl.sda.level = ALL
+java.util.logging.ConsoleHandler.formatter = java.util.logging.SimpleFormatter
+java.util.logging.ConsoleHandler.level = ALL
+# Limit the message that are printed on the console to INFO and above.
+.level= INFO
+handlers= java.util.logging.ConsoleHandler
