@@ -12,4 +12,6 @@ public class Manufacturer {
         this.yearOfCreation = yearOfCreation;
         this.models = models;
     }
+
+
 }
