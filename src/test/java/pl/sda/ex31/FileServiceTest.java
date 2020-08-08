@@ -36,9 +36,6 @@ public class FileServiceTest {
         }
         freq.remove("");
 
-
-
-
         Path outputFile = Paths.get("src/main/resources/frequencyTable.txt");
         try(BufferedWriter bw = Files.newBufferedWriter(outputFile)) {
             for (Map.Entry<String, Integer> entry : freq.entrySet())
@@ -46,7 +43,5 @@ public class FileServiceTest {
                 bw.write(entry.getKey() + " : " + entry.getValue() + System.lineSeparator());
             }
         }
-
-
     }
 }
